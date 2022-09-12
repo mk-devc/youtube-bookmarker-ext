@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (activeTab.url.includes("youtube.com/watch") && currentVideo) {
     chrome.storage.sync.get([currentVideo], (data) => {
+      // returns a dictionary object to data, this anonymous callback function will process it
       const currentVideoBookmarks = data[currentVideo] ? JSON.parse(data[currentVideo]) : [];
 
       viewBookmarks(currentVideoBookmarks);
